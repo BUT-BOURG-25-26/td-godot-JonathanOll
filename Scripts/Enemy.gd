@@ -1,7 +1,7 @@
 class_name Enemy
 extends CharacterBody3D
 
-@onready var player := $"../Player"
+@onready var player := $"../../Player"
 
 const SPEED = 4
 

@@ -30,10 +30,6 @@ vfxScene = ExtResource("2_7rqgy")
 script = ExtResource("3_qxria")
 enemyInstance = ExtResource("2_tr2i4")
 
-[node name="Timer" type="Timer" parent="GameLogic"]
-wait_time = 5.0
-autostart = true
-
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_nhkr4")
 
@@ -56,4 +52,5 @@ skeleton = NodePath("../..")
 transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
 shape = SubResource("WorldBoundaryShape3D_hpc76")
 
-[connection signal="timeout" from="GameLogic/Timer" to="GameLogic" method="_on_timer_timeout"]
+[node name="Enemy" parent="." instance=ExtResource("2_tr2i4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0848758, 0.5, -2.66428)
