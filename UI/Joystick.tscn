@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://c47ssdwhr0b3"]
+
+[ext_resource type="PackedScene" uid="uid://dmr0fcamx7t56" path="res://addons/virtual_joystick/virtual_joystick_scene.tscn" id="1_1ggwm"]
+[ext_resource type="Script" uid="uid://dissbdw0wp8mp" path="res://Scripts/joystick.gd" id="1_8wiip"]
+
+[node name="Joystick" type="Node2D" node_paths=PackedStringArray("joystick")]
+script = ExtResource("1_8wiip")
+joystick = NodePath("CanvasLayer/Virtual Joystick")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Virtual Joystick" parent="CanvasLayer" instance=ExtResource("1_1ggwm")]
+action_left = "move_left"
+action_right = "move_right"
+action_up = "move_forward"
+action_down = "move_backward"

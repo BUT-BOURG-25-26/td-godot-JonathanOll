@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://coqwy3ube5461"]
 
-[ext_resource type="Script" uid="uid://bivkusfdpae3m" path="res://UI/KillCount.gd" id="1_yhdra"]
+[ext_resource type="Script" uid="uid://bivkusfdpae3m" path="res://Scripts/KillCount.gd" id="1_yhdra"]
 
 [node name="KillCount" type="Label"]
 offset_right = 1152.0

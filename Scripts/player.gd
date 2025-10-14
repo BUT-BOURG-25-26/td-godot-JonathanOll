@@ -4,6 +4,7 @@ extends Node3D
 var healthbar
 @export var move_speed:float = 5
 @export var health: int = 3
+@export var joystick: Joystick
 
 var damage_timer: float = 0
 var move_inputs: Vector2

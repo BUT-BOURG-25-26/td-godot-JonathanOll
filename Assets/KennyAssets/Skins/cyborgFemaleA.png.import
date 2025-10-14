@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bt6048nnerb6p"
 path.s3tc="res://.godot/imported/cyborgFemaleA.png-039ff77c364dd4a062de5625621094d7.s3tc.ctex"
+path.etc2="res://.godot/imported/cyborgFemaleA.png-039ff77c364dd4a062de5625621094d7.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Assets/KennyAssets/Skins/cyborgFemaleA.png"
-dest_files=["res://.godot/imported/cyborgFemaleA.png-039ff77c364dd4a062de5625621094d7.s3tc.ctex"]
+dest_files=["res://.godot/imported/cyborgFemaleA.png-039ff77c364dd4a062de5625621094d7.s3tc.ctex", "res://.godot/imported/cyborgFemaleA.png-039ff77c364dd4a062de5625621094d7.etc2.ctex"]
 
 [params]
 

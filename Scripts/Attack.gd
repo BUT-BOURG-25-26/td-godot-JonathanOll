@@ -6,7 +6,7 @@ extends Node3D
 const RAY_LENGTH = 1000
 
 func _input(event: InputEvent) -> void:
-	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
+	if (event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT) or (event is InputEventScreenTouch):
 		var hit = ray_cast(event.position)
 		if hit && (hit.collider.name == "Ground" or hit.collider.name == "Enemy"):
 			create_vfx(hit.position)

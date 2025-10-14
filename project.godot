@@ -19,6 +19,10 @@ config/icon="res://icon.svg"
 
 GameLogicGlobal="*res://Scripts/GameLogic.gd"
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/virtual_joystick/plugin.cfg")
+
 [input]
 
 move_right={
@@ -55,3 +59,4 @@ damage_player={
 
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+textures/vram_compression/import_etc2_astc=true

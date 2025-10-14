@@ -138,6 +138,12 @@ libraries = {
 &"idle": SubResource("AnimationLibrary_q88tf")
 }
 
+[node name="AnimationTree" type="AnimationTree" parent="RigidBody3D/characterMedium/AnimationPlayer2"]
+tree_root = SubResource("AnimationNodeStateMachine_h4iuc")
+anim_player = NodePath("../AnimationPlayer2")
+parameters/conditions/idle = false
+parameters/conditions/running = false
+
 [node name="AnimationTree" type="AnimationTree" parent="RigidBody3D/characterMedium"]
 tree_root = SubResource("AnimationNodeStateMachine_h4iuc")
 anim_player = NodePath("../AnimationPlayer2")
