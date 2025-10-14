@@ -1,10 +1,12 @@
-[gd_scene load_steps=11 format=3 uid="uid://dm6f2e680tf4q"]
+[gd_scene load_steps=13 format=3 uid="uid://dm6f2e680tf4q"]
 
 [ext_resource type="PackedScene" uid="uid://bw0dhumjpcqmi" path="res://Scenes/player.tscn" id="1_hpc76"]
 [ext_resource type="Script" uid="uid://q4gbc5amj74x" path="res://Scripts/Attack.gd" id="1_nhkr4"]
 [ext_resource type="PackedScene" uid="uid://d1ceuge37ite" path="res://Scenes/vfx_impact.tscn" id="2_7rqgy"]
 [ext_resource type="PackedScene" uid="uid://c6oii505mnsec" path="res://Scenes/Enemy.tscn" id="2_tr2i4"]
-[ext_resource type="Script" uid="uid://dukdpxuseolw8" path="res://Scripts/GameLogic.gd" id="3_qxria"]
+[ext_resource type="Script" uid="uid://dukdpxuseolw8" path="res://Scripts/EnemySpawn.gd" id="3_qxria"]
+[ext_resource type="PackedScene" uid="uid://coqwy3ube5461" path="res://UI/KillCount.tscn" id="6_y4jh7"]
+[ext_resource type="PackedScene" uid="uid://dl47sfoufmsba" path="res://UI/GameOver.tscn" id="7_q68mp"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_hpc76"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -26,19 +28,20 @@ tonemap_mode = 2
 script = ExtResource("1_nhkr4")
 vfxScene = ExtResource("2_7rqgy")
 
-[node name="GameLogic" type="Node" parent="."]
+[node name="EnemySpawn" type="Node" parent="."]
 script = ExtResource("3_qxria")
 enemyInstance = ExtResource("2_tr2i4")
 
-[node name="Timer" type="Timer" parent="GameLogic"]
-wait_time = 5.0
+[node name="Timer" type="Timer" parent="EnemySpawn"]
+wait_time = 2.5
 autostart = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_nhkr4")
 
-[node name="Player" parent="." instance=ExtResource("1_hpc76")]
+[node name="Player" parent="." node_paths=PackedStringArray("gameOverScene") instance=ExtResource("1_hpc76")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0431051, 0.254399, 8.21429)
+gameOverScene = NodePath("../GameOver")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.832061, 0.554685, 0, -0.554685, 0.832061, 0, 3.12405, 10.9635)
@@ -56,4 +59,12 @@ skeleton = NodePath("../..")
 transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
 shape = SubResource("WorldBoundaryShape3D_hpc76")
 
-[connection signal="timeout" from="GameLogic/Timer" to="GameLogic" method="_on_timer_timeout"]
+[node name="Node" type="Node" parent="."]
+
+[node name="KillCount" parent="Node" instance=ExtResource("6_y4jh7")]
+offset_right = 1151.0
+
+[node name="GameOver" parent="." instance=ExtResource("7_q68mp")]
+visible = false
+
+[connection signal="timeout" from="EnemySpawn/Timer" to="EnemySpawn" method="_on_timer_timeout"]

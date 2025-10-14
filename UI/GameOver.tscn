@@ -1,0 +1,65 @@
+[gd_scene load_steps=6 format=3 uid="uid://dl47sfoufmsba"]
+
+[ext_resource type="Script" uid="uid://c4egr64744i7c" path="res://Scripts/GameOver.gd" id="1_kjexa"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vjbsa"]
+bg_color = Color(0, 0.53, 0.273833, 1)
+expand_margin_left = 5.0
+expand_margin_top = 5.0
+expand_margin_right = 5.0
+expand_margin_bottom = 5.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wpr5w"]
+bg_color = Color(3.08037e-06, 0.71813, 0.366676, 1)
+expand_margin_left = 5.0
+expand_margin_top = 5.0
+expand_margin_right = 5.0
+expand_margin_bottom = 5.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vohf5"]
+bg_color = Color(0.752941, 0, 0, 1)
+expand_margin_left = 5.0
+expand_margin_top = 5.0
+expand_margin_right = 5.0
+expand_margin_bottom = 5.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kjexa"]
+bg_color = Color(1, 0, 0, 1)
+expand_margin_left = 5.0
+expand_margin_top = 5.0
+expand_margin_right = 5.0
+expand_margin_bottom = 5.0
+
+[node name="GameOver" type="VBoxContainer" node_paths=PackedStringArray("restartButton", "quitButton")]
+offset_right = 1152.0
+offset_bottom = 648.0
+theme_override_constants/separation = 20
+alignment = 1
+script = ExtResource("1_kjexa")
+restartButton = NodePath("HBoxContainer/Restart")
+quitButton = NodePath("HBoxContainer/Quit")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+theme_override_font_sizes/font_size = 93
+text = "GAME OVER"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 50
+alignment = 1
+
+[node name="Restart" type="Button" parent="HBoxContainer"]
+custom_minimum_size = Vector2(70, 30)
+layout_mode = 2
+theme_override_styles/hover = SubResource("StyleBoxFlat_vjbsa")
+theme_override_styles/normal = SubResource("StyleBoxFlat_wpr5w")
+text = "Restart"
+
+[node name="Quit" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_styles/hover = SubResource("StyleBoxFlat_vohf5")
+theme_override_styles/normal = SubResource("StyleBoxFlat_kjexa")
+text = "Quit
+"

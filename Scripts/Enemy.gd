@@ -15,6 +15,8 @@ func handle_movement():
 	var direction: Vector3 = player.position - position
 	direction = direction.normalized() * SPEED
 	
+	look_at(Vector3(player.position.x, position.y, player.position.z))
+	
 	velocity = direction
 	move_and_slide()
 
@@ -26,5 +28,6 @@ func handle_collision():
 		   collider.get_parent_node_3d().get_parent_node_3d() and\
 		   collider.get_parent_node_3d().get_parent_node_3d() == player:
 			player.damage(1)
+			queue_free()
 		
 	

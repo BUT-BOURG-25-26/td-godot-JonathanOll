@@ -1,0 +1,62 @@
+[gd_scene load_steps=7 format=3 uid="uid://dkex7edx6nyj"]
+
+[ext_resource type="Script" uid="uid://25eluksqf7mw" path="res://Scripts/MainMenu.gd" id="1_uahxu"]
+[ext_resource type="PackedScene" uid="uid://dm6f2e680tf4q" path="res://Scenes/GameScene.tscn" id="2_b37jj"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vjbsa"]
+bg_color = Color(0, 0.53, 0.273833, 1)
+expand_margin_left = 5.0
+expand_margin_top = 5.0
+expand_margin_right = 5.0
+expand_margin_bottom = 5.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wpr5w"]
+bg_color = Color(3.08037e-06, 0.71813, 0.366676, 1)
+expand_margin_left = 5.0
+expand_margin_top = 5.0
+expand_margin_right = 5.0
+expand_margin_bottom = 5.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vohf5"]
+bg_color = Color(0.752941, 0, 0, 1)
+expand_margin_left = 5.0
+expand_margin_top = 5.0
+expand_margin_right = 5.0
+expand_margin_bottom = 5.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kjexa"]
+bg_color = Color(1, 0, 0, 1)
+expand_margin_left = 5.0
+expand_margin_top = 5.0
+expand_margin_right = 5.0
+expand_margin_bottom = 5.0
+
+[node name="MainMenu" type="VBoxContainer" node_paths=PackedStringArray("playButton", "quitButton")]
+offset_right = 1152.0
+offset_bottom = 648.0
+theme_override_constants/separation = 20
+alignment = 1
+script = ExtResource("1_uahxu")
+playButton = NodePath("HBoxContainer/Play")
+quitButton = NodePath("HBoxContainer/Quit")
+gameScene = ExtResource("2_b37jj")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 50
+alignment = 1
+
+[node name="Play" type="Button" parent="HBoxContainer"]
+custom_minimum_size = Vector2(70, 30)
+layout_mode = 2
+theme_override_styles/hover = SubResource("StyleBoxFlat_vjbsa")
+theme_override_styles/normal = SubResource("StyleBoxFlat_wpr5w")
+text = "Play"
+
+[node name="Quit" type="Button" parent="HBoxContainer"]
+custom_minimum_size = Vector2(70, 30)
+layout_mode = 2
+theme_override_styles/hover = SubResource("StyleBoxFlat_vohf5")
+theme_override_styles/normal = SubResource("StyleBoxFlat_kjexa")
+text = "Quit
+"

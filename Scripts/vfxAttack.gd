@@ -16,8 +16,7 @@ func emit():
 func _on_body_entered(body: Node3D) -> void:
 	if body is Enemy:
 		body.queue_free()
-		GameLogic.enemy_kill_count += 1
-		
+		GameLogic.enemy_kill_count += 1		
 	
 
 func _on_shockwave_finished() -> void:

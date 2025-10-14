@@ -11,9 +11,13 @@ config_version=5
 [application]
 
 config/name="TD_Godot"
-run/main_scene="uid://dm6f2e680tf4q"
+run/main_scene="uid://dkex7edx6nyj"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
+
+[autoload]
+
+GameLogicGlobal="*res://Scripts/GameLogic.gd"
 
 [input]
 

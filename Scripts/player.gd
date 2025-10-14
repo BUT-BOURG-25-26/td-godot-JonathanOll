@@ -1,11 +1,14 @@
+class_name Player
 extends Node3D
+
 var healthbar
 @export var move_speed:float = 5
 @export var health: int = 3
 
 var damage_timer: float = 0
-
 var move_inputs: Vector2
+
+@export var gameOverScene: GameOver
 
 func _ready() -> void:
 	healthbar = $RigidBody3D/SubViewport/HealthBar
@@ -44,4 +47,4 @@ func damage(x):
 		die()
 
 func die():
-	get_tree().reload_current_scene()
+	gameOverScene.visible = true
