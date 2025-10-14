@@ -6,10 +6,10 @@ extends VBoxContainer
 @export var gameScene: PackedScene
 
 func _ready() -> void:
-	playButton.pressed.connect(start)
+	playButton.pressed.connect(play)
 	quitButton.pressed.connect(quit)
 
-func start() -> void:
+func play() -> void:
 	get_tree().change_scene_to_packed(gameScene)
 
 func quit() -> void:

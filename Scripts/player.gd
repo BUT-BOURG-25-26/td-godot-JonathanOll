@@ -9,6 +9,7 @@ var damage_timer: float = 0
 var move_inputs: Vector2
 
 @export var gameOverScene: GameOver
+@export var animationTree: AnimationTree
 
 func _ready() -> void:
 	healthbar = $RigidBody3D/SubViewport/HealthBar
@@ -21,12 +22,17 @@ func _process(delta:float) -> void:
 	if Input.is_action_just_pressed("damage_player"):
 		health -= 1
 		healthbar.update(health)
-
+	
 func _physics_process(delta: float) -> void:
 	read_move_inputs()
 	move_inputs *= move_speed * delta
 	if move_inputs != Vector2.ZERO:
 		global_position += Vector3(move_inputs.x, 0.0, move_inputs.y)
+		animationTree.set("parameters/conditions/idle", false)
+		animationTree.set("parameters/conditions/running", true)
+	else:
+		animationTree.set("parameters/conditions/idle", true)
+		animationTree.set("parameters/conditions/running", false)
 	return
 
 func read_move_inputs():

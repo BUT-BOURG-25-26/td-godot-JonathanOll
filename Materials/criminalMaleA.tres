@@ -1,0 +1,6 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://dvasgfx83735a"]
+
+[ext_resource type="Texture2D" uid="uid://m6gc5n5k68ey" path="res://Assets/KennyAssets/Skins/criminalMaleA.png" id="1_fsrq1"]
+
+[resource]
+albedo_texture = ExtResource("1_fsrq1")

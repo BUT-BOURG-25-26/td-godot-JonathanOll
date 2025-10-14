@@ -20,14 +20,23 @@ func handle_movement():
 	velocity = direction
 	move_and_slide()
 
+
+
 func handle_collision():
 	for i in range(get_slide_collision_count()):
 		var collider = get_slide_collision(i).get_collider()
 		
 		if collider.get_parent_node_3d() and \
-		   collider.get_parent_node_3d().get_parent_node_3d() and\
+		   collider.get_parent_node_3d().get_parent_node_3d() and \
 		   collider.get_parent_node_3d().get_parent_node_3d() == player:
 			player.damage(1)
 			queue_free()
 		
-	
+	 
+
+
+func _on_area_3d_body_entered(body: Node3D) -> void:
+	if body.get_parent_node_3d() and \
+		   body.get_parent_node_3d() is Player:
+			player.damage(1)
+			queue_free()
